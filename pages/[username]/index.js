@@ -1,7 +1,22 @@
-export default function UserProfilePage({}) {
+import UserProfile from '../../components/UserPofile'
+import PostFeed from '../../components/PostFeed'
+
+
+export async function getServerSideProps( { query }) {
+    const { username } = query
+
+
+    return {
+        props:{ user, posers }, // passing to page as props
+    }
+}
+
+export default function UserProfilePage({user, posts}) {
     return (
         <main>
-            <h1>test</h1>
+            <UserProfile user={user}/>
+            <PostFeed posts={post}/>
+
         </main>
     )
 }
