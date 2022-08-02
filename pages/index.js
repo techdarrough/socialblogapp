@@ -4,25 +4,61 @@ import styles from '../styles/Home.module.css'
 import Loader from '../components/Loader'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
+import PostFeed from '../components/PostFeed'
+import { firestore, fromMillis, postToJSON } from '../lib/firebase'
+import { useState } from 'react'
 
-export default function Home() {
+const LIMIT = 1
+// max on post per page
+
+export async function getServerSideProps(context) {
+  const postsQuery = firestore
+    .collectionGroup('posts')
+    .where('published', '==', true)
+    .orderBy('createdAt', 'desc')
+    .limit(LIMIT)
+  const posts = (await postsQuery.get()).docs.map(postToJSON)
+  return { props: { posts } }
+
+}
+
+export default function Home(props) {
+  const [posts, setPosts] = useState(props.posts)
+  const [loading, setLoading] = useState(false)
+
+  const [postsEnd, setPostsEnd] = useState(false)
+  const getMorePosts = async () => {
+    setLoading(true);
+    const last = posts[posts.length - 1]
+
+    const cursor = typeof last.createdAt === 'number' ? fromMillis(last.createdAt) : last.createdAt;
+
+    const query = firestore
+      .collectionGroup('posts')
+      .where('published', '==', true)
+      .orderBy('createdAt', 'desc')
+      .startAfter(cursor)
+      .limit(LIMIT);
+
+    const newPosts = (await query.get()).docs.map((doc) => doc.data());
+
+    setPosts(posts.concat(newPosts));
+    setLoading(false);
+
+    if (newPosts.length < LIMIT) {
+      setPostsEnd(true);
+    }
+  }
 
   return (
     <main>
-      <div>
-        
-        <Loader show /> {/* show loader anytime there is no content */}
-        <div>
-          <Link prefetch={false} href={
-            {path: '/[username]',
-             query: {username:'preston'},}
-          }> Profile page</Link>
-        </div>
-        <button onClick={() => toast.success('hello toast!')}>
-        Toast Me
-      </button>
+      <PostFeed posts={posts} />
 
-      </div>
+      {!loading && !postsEnd && <button onClick={getMorePosts}>Load more</button>}
+
+      <Loader show={loading} />
+
+      {postsEnd && 'You have reached the end!'}
     </main>
   )
 }

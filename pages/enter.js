@@ -92,8 +92,8 @@ function UsernameForm() {
     checkUsername(formValue);
   }, [formValue]);
 
-  // Hit the database for username match after each debounced change
-  // useCallback is required for debounce to work
+  // Hit the database for username match after each change after waiting for 500 millscond
+  // useCallback hook is required for debounce to work
   const checkUsername = useCallback(
     debounce(async (username) => {
       if (username.length >= 3) {
