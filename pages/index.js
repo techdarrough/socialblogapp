@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Loader from '../components/Loader'
+import styles from '@styles/Home.module.css'
+import Loader from '@components/Loader'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
-import PostFeed from '../components/PostFeed'
-import { firestore, fromMillis, postToJSON } from '../lib/firebase'
+import PostFeed from '@components/PostFeed'
+import { firestore, fromMillis, postToJSON } from '@lib/firebase'
 import { useState } from 'react'
 
 const LIMIT = 1

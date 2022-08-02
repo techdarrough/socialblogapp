@@ -1,7 +1,7 @@
-import UserProfile from '../../components/UserPofile';
-import PostFeed from '../../components/PostFeed';
-import { getUserWithUsername, postToJSON } from '../../lib/firebase';
-import Metatags from '../../components/Metatags';
+import UserProfile from '@components/UserPofile';
+import PostFeed from '@components/PostFeed';
+import { getUserWithUsername, postToJSON } from '@lib/firebase';
+import Metatags from '@components/Metatags';
 
 // used to tell next to wait until data is fetch before render
 export async function getServerSideProps( { query }) {
