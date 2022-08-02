@@ -21,15 +21,22 @@ export default function Enter(props) {
 
 // Sign in with Google button
 function SignInButton() {
-  const signInWithGoogle = async () => {
-    await auth.signInWithPopup(googleAuthProvider);
+  try {
+    const signInWithGoogle = async () => {
+      await auth.signInWithPopup(googleAuthProvider);}
+
+      return (
+        <button className="btn-google" onClick={signInWithGoogle}>
+          <img src={'/google.png'} width="30px" /> Sign in with Google
+        </button>
+    );
+  } catch (error) { 
+    console.log(`error with google signin ${error}`)
+    
+  
   };
 
-  return (
-      <button className="btn-google" onClick={signInWithGoogle}>
-        <img src={'/google.png'} width="30px" /> Sign in with Google
-      </button>
-  );
+  
 }
 
 // Sign out button
