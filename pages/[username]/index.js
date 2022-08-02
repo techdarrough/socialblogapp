@@ -10,7 +10,8 @@ export async function getServerSideProps( { query }) {
     let user = null
     let posts = null
 
-    // if no user doc 404
+    // if user doc set user to userdoc data 
+    //frame query to user.ref limit to 5 posts
     if (userDoc) {
         user = userDoc.data()
         const postQuery = userDoc.ref
@@ -18,7 +19,7 @@ export async function getServerSideProps( { query }) {
             .where('published', '==', true)
             .orderBy('createAt','desc')
             .limit(5);
-        
+        // convert to json data
             posts = (await postQuery.get()).docs.maps(postToJSON)
     
 
@@ -34,7 +35,7 @@ export default function UserProfilePage({user, posts}) {
     return (
         <main>
             <UserProfile user={user}/>
-            <PostFeed posts={post}/>
+            <PostFeed posts={posts}/>
 
         </main>
     )
