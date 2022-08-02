@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import kebabCase from 'lodash.kebabcase';
 import toast from 'react-hot-toast';
-
+//auth provider render first to ensure authentication
 export default function AdminPostsPage(props) {
   return (
     <main>
@@ -42,7 +42,7 @@ function CreateNewPost() {
   const { username } = useContext(UserContext);
   const [title, setTitle] = useState('');
 
-  // Ensure slug is URL safe
+  // Ensure slug is URL safe strips !?
   const slug = encodeURI(kebabCase(title));
 
   // Validate length
