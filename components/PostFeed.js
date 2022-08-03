@@ -14,7 +14,7 @@ export default function PostFeed({ posts, admin }) {
     const wordCount = post?.content.trim().split(/\s+/g).length;
     const readTime = (wordCount / 100 + 1).toFixed(0);
     return (
-      <div  >
+      <div style={{ borderRadius: '5px'}} >
         
         <Link href={`/${post.username}/${post.slug}`}>
           <h2>
@@ -22,7 +22,7 @@ export default function PostFeed({ posts, admin }) {
             
           </h2>
         </Link>
-        <Link href={`/{post.username}`}>
+        <Link href={`/${post.username}`}>
           <a>
             <strong>By {post.username}</strong>
           </a>
