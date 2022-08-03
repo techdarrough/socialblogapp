@@ -4,7 +4,7 @@ import { firestore, auth, serverTimestamp } from '@lib/firebase';
 import ImageUploader from '@components/ImageUploader';
 
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore';
 import { useForm } from 'react-hook-form';
@@ -16,7 +16,7 @@ export default function AdminPostEdit(props) {
   return (
     <AuthCheck>
       <PostManager />
-    </AuthCheck>
+      </AuthCheck>
   );
 }
 
@@ -46,6 +46,7 @@ function PostManager() {
             <Link href={`/${post.username}/${post.slug}`}>
               <button className="btn-blue">Live view</button>
             </Link>
+            <DeletePostButton postRef={postRef} />
             
           </aside>
         </>
@@ -82,6 +83,7 @@ function PostForm({ defaultValues, postRef, preview }) {
       <div className={preview ? styles.hidden : styles.controls}>
         <ImageUploader />
 
+
         <textarea
           name="content"
           ref={register({
@@ -104,4 +106,22 @@ function PostForm({ defaultValues, postRef, preview }) {
       </div>
     </form>
   );
-}
+        }
+  function DeletePostButton({ postRef }) {
+    const router = useRouter();
+  
+    const deletePost = async () => {
+      const doIt = confirm('are you sure!');
+      if (doIt) {
+        await postRef.delete();
+        router.push('/admin');
+        toast('post annihilated ', { icon: '�️' });
+      }
+    };
+  
+    return (
+      <button className="btn-red" onClick={deletePost}>
+        Delete
+      </button>
+    );
+  }
