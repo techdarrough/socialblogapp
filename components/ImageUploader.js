@@ -12,7 +12,7 @@ export default function ImageUploader() {
     // Creates a Firebase Upload Task
     const uploadFile = async (e) => {
         // Get the file
-        const file = Array.from(e.target.files)[0];
+     try {   const file = Array.from(e.target.files)[0];
         const extension = file.type.split('/')[1];
 
         // Makes reference to the storage bucket location
@@ -35,7 +35,7 @@ export default function ImageUploader() {
                     setUploading(false);
                 });
         });
-    };
+     }catch(error){console.log(error)} };
 
     return (
         <div className="box">
