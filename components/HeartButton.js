@@ -9,6 +9,7 @@ export default function Heart({ postRef }) {
 
     // async function to create to docs 
     const addHeart = async () => {
+        try {
         const uid = auth.currentUser.uid;
         const batch = firestore.batch();
 
@@ -16,18 +17,19 @@ export default function Heart({ postRef }) {
         //add likes
         batch.set(heartRef, { uid });
         // attach heart doc to user id
-        await batch.commit();
+        await batch.commit();} catch(error) {console.log}
         // commits data to server
     };
 
     // Removes heart doc by users referenced 
     const removeHeart = async () => {
+       try{
         const batch = firestore.batch();
 
         batch.update(postRef, { heartCount: increment(-1) });
         batch.delete(heartRef);
 
-        await batch.commit();
+        await batch.commit();} catch(error) {console.log(error) }
     };
 
     return heartDoc?.exists ? (
