@@ -42,7 +42,7 @@ export async function getServerSideProps( { query }) {
 }
 
 export default function UserProfilePage({user, posts}) {
-    console.log(posts)
+    console.log(user, posts)
     return (
         <main>
             <Metatags title={user.username} description={`${user.username}'s public profile`} />
