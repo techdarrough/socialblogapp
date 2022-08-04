@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+ 
+This project represents a scaled down version of a blog website. It has Feed page where you can see posts from other users. If you would like to make a post yourself then go ahead and select the “log in” button. 
+
+
 Database Structure
 users/{uid} Public user profile
 usernames/{username} Username uniqueness tracking
