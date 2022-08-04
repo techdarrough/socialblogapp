@@ -9,6 +9,8 @@
   --color-red: #df3b3b;
   --color-green: #3bdf72;
   --color-gray: #b5bdc4;
+  --color-lightgray:#DCDCDC;
+  
 }
 html,
 body {
@@ -263,3 +265,15 @@ input[type="file"] {
 }
 
 .hidden { display:  none; }
+
+.post-each {
+  /* margin: 4px; */
+  /* border-width: 1px;
+  border-style: solid;
+  border-radius: 3px; */
+  background-color:aliceblue;
+  /* padding: 0px 4px 1px 4px; */
+}
+.post-feed{
+  background-color:aliceblue;
+} 
