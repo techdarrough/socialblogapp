@@ -14,8 +14,8 @@ export default function PostFeed({ posts, admin }) {
     const wordCount = post?.content.trim().split(/\s+/g).length;
     const readTime = (wordCount / 100 + 1).toFixed(0);
     return (
-      <div>
-        <div class= 'post-feed'>
+      <div class="card">
+        <div>
           <Link href={`/${post.username}/${post.slug}`}>
             <h2>
               <a>{post.title}</a>
