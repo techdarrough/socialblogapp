@@ -10,19 +10,16 @@ users/{uid}/posts/{slug} User can have many posts
 users/{uid}/posts/{slug}/hearts/{uid} many-to-many relationship between users and posts via hearts
 ## 
 
-
-## make table 
-"lodash.debounce": "^4.0.8",
-    "lodash.kebabcase": "^4.1.1",
-    "next": "12.0.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-firebase-hooks": "^2.2.0",
-    "react-hook-form": "^6.14.2",
-    "react-hot-toast": "^1.0.2",
-    "react-markdown": "^5.0.3"
-
-
-
+| NPM PACKAGES | Versions | 
+| ------------- |:-------------:| 
+| lodash.debounce | 4.0.8 | 
+| lodash.kebabcase | centered |
+| next | 12.0.1 | 
+| react | 17.0.1 |
+| react-dom | 17.0.1 |
+| react-firebase-hooks | 2.2.0 |
+| react-hook-form | 6.14.2 |
+| react-hot-toast | 1.0.2 |
+| react-markdown | 5.0.3 |
 
 ![image](https://media.giphy.com/media/V48T5oWs3agg0/giphy.gif)
