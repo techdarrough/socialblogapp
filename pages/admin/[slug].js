@@ -1,3 +1,5 @@
+// slug created to handle dynamic routes  [] tell next js 
+
 import styles from '@styles/Admin.module.css';
 import AuthCheck from '@components/AuthCheck';
 import { firestore, auth, serverTimestamp } from '@lib/firebase';

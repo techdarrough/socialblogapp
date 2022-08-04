@@ -3,7 +3,7 @@ import Navbar from '@components/Navbar'
 import {Toaster } from 'react-hot-toast'
 import { UserContext } from '@lib/context'
 import { useUserData } from '@lib/hooks';
-
+// Next.js wrapper used to manage auth state on front end
 export default function MyApp({ Component, pageProps }) {
   
   const userData = useUserData();
