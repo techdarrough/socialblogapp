@@ -12,10 +12,11 @@
 }
 html,
 body {
+  background: linear-gradient(to bottom, rgb(91, 131, 155) 0%, rgb(91, 131, 130) 50%, rgb(91, 131, 98) 25%);
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: 'Noto Sans', sans-serif;
-  background-color: var(--color-bg);
   color: var(--color-text);
   margin-top: 50px;
 }
