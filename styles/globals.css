@@ -3,18 +3,18 @@
 
 
 :root {
-  --color-bg: #eef0f1;
+  --color-bg: #2A9D8F;
   --color-text: #08090a;
-  --color-blue: #3b49df;
+  --color-blue: #2A8592;
   --color-red: #df3b3b;
-  --color-green: #3bdf72;
+  --color-green: #42847D;
   --color-gray: #b5bdc4;
   --color-lightgray:#DCDCDC;
   
 }
 html,
 body {
-  background: linear-gradient(to bottom, rgb(107, 112, 92) 20%, rgb(212, 199, 176) 55%, rgb(88, 47, 14)85%);
+  background: linear-gradient(to bottom, #2A9D8F 20%, #F4A261 55%, #E76F51 85%);
   height: 200%;
   padding: 0;
   margin: 0;
@@ -77,7 +77,7 @@ code {
   font-weight: bold;
   border-bottom: 1px solid var(--color-gray);
   z-index: 99;
-  background-color: rgb(88, 47, 14);
+  background-color:#264653;
 }
 
 .navbar ul {
@@ -165,7 +165,7 @@ button.btn-google {
 }
 
 button.btn-logo {
-  background-color: var(--color-text);
+  background-color: #1B655C;
   color: white;
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -177,7 +177,7 @@ button.btn-logo {
 .card {
   padding: 2rem;
   margin: 1rem 0;
-  background-color: white;
+  background-color: #FAD8BC;
   border: 1px solid var(--color-gray);
   border-radius: 8px;
 }
